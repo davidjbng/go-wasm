@@ -10,7 +10,7 @@ impl Board {
     }
 }
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 pub enum State {
     Empty,
     White,

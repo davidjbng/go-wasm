@@ -6,14 +6,14 @@ use crate::go_types::*;
 
 #[function_component(App)]
 fn app() -> Html {
-    let board = use_state(|| Board::empty());
+    let board = use_state(Board::empty);
 
     html! {
         <div class="grid w-screen h-screen place-items-center">
             <h1 class="text-6xl text-center">{ "Go" }</h1>
             <div class="grid w-full max-w-xl gap-1 grid-cols-19">
-                { for board.positions.iter().flatten().map(|state| html! {
-                        <BoardNode state={state.clone()}/>
+                { for board.positions.iter().flatten().map(|&state| html! {
+                        <BoardNode state={state}/>
                     })}
             </div>
         </div>
